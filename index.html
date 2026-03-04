@@ -250,7 +250,9 @@
 .btn-x-share:active { transform: scale(0.95); }
 .x-share-hint { color: var(--dim); font-size: 0.8rem; margin-top: 2px; }
 
-.name-input-area .btn { padding: 12px 20px; font-size: 1rem; flex-shrink: 0; white-space: nowrap; }
+    .name-input-area { max-width: min(300px, calc(100vw - 40px)); }
+    .name-input-area input { min-width: 0; }
+    .name-input-area .btn { padding: 10px 16px; font-size: 0.9rem; flex: none; }
     </style>
 </head>
 <body>
