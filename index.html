@@ -997,7 +997,17 @@ function showResult() {
   }
   const lastName = localStorage.getItem('reflexLastName') || '';
   document.getElementById('player-name').value = lastName;
-}
+
+      // Auto-save if name was previously registered
+      const savedName = localStorage.getItem('reflexLastName');
+      if (savedName) {
+        document.getElementById('name-input-area').style.display = 'none';
+        saveScore().then(() => {
+          const statusEl = document.getElementById('save-status');
+          statusEl.innerHTML = statusEl.textContent + ' <a href="#" onclick="document.getElementById(\'name-input-area\').style.display=\'flex\';document.getElementById(\'save-btn\').disabled=false;document.getElementById(\'save-status\').textContent=\'\';return false;" style="color:var(--accent2);font-size:0.8rem;margin-left:8px;">名前変更</a>';
+        });
+      }
+    }
 
 // ========================================
 // SUPABASE CONFIG
